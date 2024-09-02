@@ -1,3 +1,13 @@
+/*
+ * Student Name: William Holt
+ * Project: Matching Delimiters in Java Source Code
+ * Date: 02SEP2024
+ * Description: This class is responsible for reading a Java source file and providing 
+ *              relevant characters, excluding those inside comments or string literals. 
+ *              It also keeps track of the current line and character position.
+ */
+
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;

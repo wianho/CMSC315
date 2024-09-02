@@ -1,3 +1,13 @@
+/*
+ * Student Name: William Holt
+ * Project: Matching Delimiters in Java Source Code
+ * Date: 02SEP2024
+ * Description: This class contains the main method that checks for matching delimiters 
+ *              in a Java source file by using a stack. It reads characters from 
+ *              JavaFileAnalyzer and ensures all delimiters are properly matched.
+ */
+
+
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.Stack;

@@ -1,0 +1,18 @@
+Lessons Learned:
+Understanding Maximal Point Algorithms:
+
+This project reinforced the concept of maximal points, where a point is considered maximal if no other point is both to the right and above it. This concept can be extended to various computational geometry problems.
+Importance of Visualization:
+
+Visual feedback is essential when dealing with geometric algorithms. The lines connecting maximal points make it easier to verify correctness and debug issues.
+Handling User Input in GUIs:
+
+Implementing features to allow the user to add and remove points dynamically required understanding how to handle mouse events in JavaFX.
+Ensuring that the visual representation is updated after each user action was important to maintain a smooth user experience.
+Big-O Considerations in Geometric Algorithms:
+
+The O(n^2) complexity of finding maximal points for each possible pair of points can become a bottleneck for larger datasets. Optimizing this logic could be a future improvement.
+Debugging with Visualization:
+
+Throughout the development, printing out intermediate values (like the identified maximal points) helped to diagnose issues, such as why certain points were or were not considered maximal.
+These lessons will be valuable in any future project involving computational geometry, GUI development, or algorithm optimization.

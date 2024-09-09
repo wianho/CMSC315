@@ -1,0 +1,21 @@
+Big-O Analysis:
+Point Class:
+
+getX() and getY(): O(1)
+compareTo(Point): O(1)
+isBelowAndLeftOf(Point): O(1)
+MaximalPointsPane Class:
+
+findMaximalPoints():
+For each point p1, it checks against all other points p2. This leads to O(n^2) comparisons.
+Overall complexity: O(n^2)
+drawLines():
+Sorting the maximal points is O(m log m), where m is the number of maximal points.
+Drawing the lines involves iterating through the m maximal points: O(m).
+Overall complexity: O(m log m)
+MaximalPointsApp Class:
+
+readPointsFromFile():
+Reading from a file and adding points to an ObservableList is O(n), where n is the number of points.
+Overall Complexity of the Application:
+The most expensive operation is finding maximal points, which is O(n^2), where n is the total number of points.

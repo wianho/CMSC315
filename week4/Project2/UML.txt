@@ -1,0 +1,31 @@
+UML Class Diagram:
+Below is a description of the UML class diagram for your program. You can use a UML tool to visualize this.
+
+Point Class
+
+Attributes:
+x: double
+y: double
+Methods:
++ Point(double, double)
++ getX(): double
++ getY(): double
++ isBelowAndLeftOf(Point): boolean
++ compareTo(Point): int
+MaximalPointsPane Class
+
+Attributes:
+points: ObservableList<Point>
+Methods:
++ MaximalPointsPane(ObservableList<Point>)
++ drawInitialPoints(): void
++ drawLines(): void
++ findMaximalPoints(): ObservableList<Point>
++ handleMouseClick(MouseEvent): void
++ findClosestPoint(double, double): Point
+MaximalPointsApp Class
+
+Methods:
++ start(Stage): void
++ readPointsFromFile(String): ObservableList<Point>
++ main(String[]): void

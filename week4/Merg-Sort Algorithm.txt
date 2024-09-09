@@ -1,0 +1,8 @@
+public static void mergeSort(int[] list) {
+    if (list.length > 1) {
+        mergeSort(list[0 ... list.length / 2]);
+        mergeSort(list[list.length / 2 + 1 ... list.length]);
+        merge list[0 ... list.length / 2] with
+          list[list.length / 2 + 1 ... list.length];
+    }
+}

@@ -1,0 +1,33 @@
+Test Plan:
+The test plan for this program should cover the following scenarios:
+
+Basic Functionality Test
+
+Input: points.txt file with known set of points (e.g., (53.0, 288.0), (89.0, 433.0), etc.).
+Expected Output: All points are displayed, and the maximal points are identified and connected with lines.
+Verification: Check the console output for identified maximal points. Verify visually that the correct points are connected with lines.
+Edge Case 1: All Points on the Same Horizontal Line
+
+Input: All points with the same y-coordinate but different x-coordinates.
+Expected Output: The rightmost point is considered maximal.
+Verification: Check that the rightmost point is identified as maximal.
+Edge Case 2: All Points on the Same Vertical Line
+
+Input: All points with the same x-coordinate but different y-coordinates.
+Expected Output: The topmost point is considered maximal.
+Verification: Check that the topmost point is identified as maximal.
+Edge Case 3: All Points in a Line (Diagonal)
+
+Input: Points forming a diagonal line where x == y.
+Expected Output: All points are maximal since none are strictly above and to the right of another.
+Verification: All points are identified as maximal.
+Interactive Test 1: Add Points
+
+Steps: Add points by left-clicking.
+Expected Output: The new point is added and, if maximal, is connected with lines.
+Verification: Ensure that the correct points are identified as maximal after the addition.
+Interactive Test 2: Remove Points
+
+Steps: Remove points by right-clicking.
+Expected Output: The point closest to the click is removed, and the lines are redrawn to reflect the updated maximal points.
+Verification: Check that the lines are correctly updated after a point is removed.

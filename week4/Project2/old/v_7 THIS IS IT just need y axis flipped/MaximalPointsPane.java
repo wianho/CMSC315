@@ -20,12 +20,11 @@ public class MaximalPointsPane extends Pane {
     private void drawInitialPoints() {
         this.getChildren().clear();  // Clear any existing drawings
     
-        double paneHeight = this.getHeight();  // Get the height of the pane
+        double paneHeight = this.getHeight();  // Get the height of the pane dynamically
     
-        // For each point, create a circle, adjusting the y-coordinate to simulate a Cartesian plane
+        // For each point in the list, create a circle representing the point and add it to the pane
         for (Point point : points) {
-            double adjustedY = paneHeight - point.getY();  // Flip the y-coordinate
-            Circle circle = new Circle(point.getX(), adjustedY, 5);  // Radius 5
+            Circle circle = new Circle(point.getX(), paneHeight - point.getY(), 5);  // Radius 5
             this.getChildren().add(circle);
         }
     
@@ -33,12 +32,10 @@ public class MaximalPointsPane extends Pane {
         drawLines();
     }
     
-    
-    
 
     private void drawLines() {
         ObservableList<Point> maximalPoints = findMaximalPoints();
-        double paneHeight = this.getHeight();  // Get the height of the pane
+        double paneHeight = this.getHeight();  // Get the height of the pane dynamically
     
         // Debug: Print out the maximal points
         System.out.println("Maximal points:");
@@ -60,7 +57,6 @@ public class MaximalPointsPane extends Pane {
             Point p1 = maximalPoints.get(i);
             Point p2 = maximalPoints.get(i + 1);
     
-            // Adjust the y-coordinates to simulate a Cartesian plane
             double adjustedY1 = paneHeight - p1.getY();  // Adjust y for p1
             double adjustedY2 = paneHeight - p2.getY();  // Adjust y for p2
     
@@ -73,6 +69,8 @@ public class MaximalPointsPane extends Pane {
             this.getChildren().add(verticalLine);
         }
     }
+    
+    
     
     
 
@@ -96,44 +94,26 @@ public class MaximalPointsPane extends Pane {
 
     // Handles mouse clicks for adding or removing points
     private void handleMouseClick(MouseEvent event) {
-        double paneHeight = this.getHeight();  // Get the pane height
-    
-        // Adjust the y-coordinate to match the Cartesian plane simulation
-        double adjustedY = paneHeight - event.getY();  // Flip the y-coordinate
-    
         if (event.getButton() == MouseButton.PRIMARY) {
-            // Add a new point when left-clicking
-            points.add(new Point(event.getX(), adjustedY));
+            points.add(new Point(event.getX(), event.getY()));
         } else if (event.getButton() == MouseButton.SECONDARY) {
-            // Remove the closest point when right-clicking
-            Point toRemove = findClosestPoint(event.getX(), adjustedY);  // Use adjustedY here
-            if (toRemove != null) {
-                points.remove(toRemove);
-            }
+            Point toRemove = findClosestPoint(event.getX(), event.getY());
+            points.remove(toRemove);
         }
-    
-        // Redraw the points and lines
         drawInitialPoints();
     }
-    
-    
 
     // Finds the closest point to a given (x, y) coordinate
     private Point findClosestPoint(double x, double y) {
         Point closest = null;
         double minDistance = Double.MAX_VALUE;
-    
-        // Loop through each point to find the closest one
         for (Point point : points) {
             double distance = Math.sqrt(Math.pow(point.getX() - x, 2) + Math.pow(point.getY() - y, 2));
-    
             if (distance < minDistance) {
                 closest = point;
                 minDistance = distance;
             }
         }
-    
-        return closest;  // Return the closest point
+        return closest;
     }
-    
 }

@@ -3,6 +3,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,7 +12,7 @@ public class MaximalPointsApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        // Set up the primary stage with a pane for drawing points and maximal points lines
+        // Read points from file or hard-code points for testing
         ObservableList<Point> points = readPointsFromFile("points.txt");
         MaximalPointsPane pane = new MaximalPointsPane(points);
         Scene scene = new Scene(pane, 500, 500);
@@ -20,11 +21,10 @@ public class MaximalPointsApp extends Application {
         primaryStage.show();
     }
 
-    // Reads points from a text file and returns them as an ObservableList of Point objects
     private ObservableList<Point> readPointsFromFile(String filename) {
         ObservableList<Point> points = FXCollections.observableArrayList();
-
-        try (Scanner scanner = new Scanner(new File(filename))) {
+        try {
+            Scanner scanner = new Scanner(new File(filename));
             while (scanner.hasNextDouble()) {
                 double x = scanner.nextDouble();
                 double y = scanner.nextDouble();
@@ -34,11 +34,9 @@ public class MaximalPointsApp extends Application {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
         return points;
     }
 
-    // Launches the JavaFX application
     public static void main(String[] args) {
         launch(args);
     }

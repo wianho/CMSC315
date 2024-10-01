@@ -1,0 +1,14 @@
+(Implement MyMap using open addressing with linear probing)
+
+Create a new concrete class MyHashMap that implements MyMap using open addressing with linear probing. For simplicity, use
+as the hash function, where
+
+f(key) = key % size
+
+is the hash-table size.
+
+Initially, the hash-table size is 4. The table size is doubled whenever the load factor exceeds the threshold (0.5).
+
+When you create a new submission, you'll notice a template code. Your task is to fill in the missing code part indicated by "WRITE YOUR CODE".
+
+For a hint on this program, please see https://liveexample.pearsoncmg.com/javarevel13e.html.
